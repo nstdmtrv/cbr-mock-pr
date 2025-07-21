@@ -1,0 +1,11 @@
+init_db:
+	python -c "from app.database import Base, engine; Base.metadata.create_all(bind=engine)"
+
+test:
+	pytest -v tests/
+
+run:
+	uvicorn main:app --reload
+
+clean:
+	rm -f cbr_rates.db
